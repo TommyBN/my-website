@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 
 
 var app = express();
@@ -20,7 +20,7 @@ app.get('/', (req,res)=>{
 })
 
 
-app.listen(PORT, () => console.log(`Listening on http://127.0.0.1:${PORT}`))
+app.listen(PORT, () => console.log(`Listening on tommybn.com:${PORT}`))
 
 // app.use('/api/v1/users', users);
 
