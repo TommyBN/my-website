@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "p{\r\n    background-color: darksalmon;\r\n    color: red;\r\n}"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h1>My website</h1>\n\n  <p>\n    this is the angular side.\n  </p>\n</div>\n\n"
+module.exports = "<div>\n  <h1>Hello, this is my website</h1>\n\n  <p>\n    My greatfull thanks to Elad Grieff, Code Master, who helped me upload this site.\n  </p>\n</div>\n\n"
 
 /***/ }),
 
