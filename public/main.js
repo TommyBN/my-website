@@ -93,10 +93,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./welcome/welcome.component */ "./src/app/welcome/welcome.component.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./welcome/welcome.component */ "./src/app/welcome/welcome.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -109,10 +110,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-    { path: 'welcome', component: _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_3__["WelcomeComponent"] },
-    { path: 'home', component: _main_main_component__WEBPACK_IMPORTED_MODULE_5__["MainComponent"] }
+    { path: 'welcome', component: _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_4__["WelcomeComponent"] },
+    { path: 'home', component: _main_main_component__WEBPACK_IMPORTED_MODULE_6__["MainComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -120,16 +122,17 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
-                _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_3__["WelcomeComponent"],
-                _main_main_component__WEBPACK_IMPORTED_MODULE_5__["MainComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
+                _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_4__["WelcomeComponent"],
+                _main_main_component__WEBPACK_IMPORTED_MODULE_6__["MainComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(routes)
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(routes)
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -146,7 +149,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".container {\r\n    color: white;\r\n}"
 
 /***/ }),
 
@@ -157,7 +160,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  Hello {{name}}, welcome to my website\n</p>\n\n\n<h1>Nothing here yet. but soooooooooon to come :)</h1>"
+module.exports = "<div class=\"container\">\n\n  \n  <p>\n    Hello {{name}}, welcome to my website\n  </p>\n  \n  \n  <h1>Nothing here yet. but soooooooooon to come :)</h1>\n</div>"
 
 /***/ }),
 
@@ -185,11 +188,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var MainComponent = /** @class */ (function () {
-    function MainComponent(userService) {
+    function MainComponent(userService, elementRef) {
         this.userService = userService;
+        this.elementRef = elementRef;
     }
     MainComponent.prototype.ngOnInit = function () {
         this.name = this.userService.userName;
+    };
+    MainComponent.prototype.ngAfterViewInit = function () {
+        this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'black';
     };
     MainComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -197,7 +204,7 @@ var MainComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./main.component.html */ "./src/app/main/main.component.html"),
             styles: [__webpack_require__(/*! ./main.component.css */ "./src/app/main/main.component.css")]
         }),
-        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]])
+        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]])
     ], MainComponent);
     return MainComponent;
 }());
@@ -250,7 +257,7 @@ var UserService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "button {\r\n    border-radius: 5px;\r\n}\r\n\r\n.form-container {\r\n    width: 50%;\r\n    height: 30%;\r\n    padding: 5%;\r\n    margin-left: 40%;\r\n    \r\n    /* visibility: hidden; */\r\n}\r\n\r\n.form-container > div {\r\n    margin: 30px;\r\n}\r\n\r\n#hidden {\r\n    margin-left: 25%;\r\n}\r\n\r\n#hidden > h1 {\r\n    color: violet;\r\n}\r\n\r\n#codeMaster {\r\n    margin-left: 10%;\r\n}\r\n\r\n"
+module.exports = ".container {\r\n    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);\r\n}\r\n\r\nbutton {\r\n    border-radius: 5px;\r\n}\r\n\r\n.form-container {\r\n    width: 50%;\r\n    height: 30%;\r\n    padding: 5%;\r\n    margin-left: 40%;\r\n    \r\n    /* visibility: hidden; */\r\n}\r\n\r\n.form-container > div {\r\n    margin: 30px;\r\n}\r\n\r\n#hidden {\r\n    padding-left: 40%;\r\n    padding-top: 15%;\r\n}\r\n\r\n#codeMaster {\r\n    padding: 10%;\r\n}\r\n\r\n#greeting {\r\n\r\n}\r\n\r\n#your-ascii {\r\n\r\n}\r\n\r\n#what-is-ascii {\r\n\r\n}\r\n\r\n#ascii-info {\r\n\r\n}\r\n\r\n#link-to-site {\r\n\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -261,7 +268,7 @@ module.exports = "button {\r\n    border-radius: 5px;\r\n}\r\n\r\n.form-containe
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \n<div id=\"bar\">\n  <div id=\"logo\">\n    tommybn\n  </div>\n</div> -->\n\n\n<div class=\"container\">\n\n  \n  <div class=\"form-container\" [style.visibility]=\"isVisible() ? 'visible' : 'hidden'\">\n    \n    <div>\n      <h3>Your name please:</h3>\n    </div>\n    \n    <div>\n      <input type=\"text\" #name (click)=\"checkValidation()\" (keyup)=\"checkValidation()\">\n    </div>\n    \n    <div>\n      <button [disabled]=\"!formValid\" (click)=\"click(); showName=true\">OK, now what?</button>\n    </div>\n    \n    \n  </div>\n  \n  <div id=\"hidden\" [style.visibility]=\"isVisible() ? 'hidden' : 'visible'\" >\n    <h1> Hello {{myName}}!!!!!</h1>\n    <h3>Did you now that your Ascii-Numerologic number is {{hollyNumber}}?</h3>\n    <h4><a href=\"https://nameecho.com/ascii\">what is ascii??</a> </h4>\n    <h4> <a href=\"https://en.wikipedia.org/wiki/ASCII\">More about Ascii-Numerology</a>  </h4>\n    <h3> <a routerLink=\"/home\"> Fuck off, let me get inside tommy's website!</a></h3>\n  </div>\n  \n</div>\n\n\n\n\n\n\n\n\n\n<div id=\"codeMaster\">\n  <h2>Thanks to:</h2>\n    My greatfull thanks to Elad Grief, Code Master, who helped me upload this site.\n</div>\n\n"
+module.exports = "<!-- \n<div id=\"bar\">\n  <div id=\"logo\">\n    tommybn\n  </div>\n</div> -->\n\n\n<div class=\"container\" [style.backgroundColor]=\"isVisible() ? '' : containerColor\">\n  \n  <div class=\"form-container\" [style.display]=\"isVisible() ? 'block' : 'none'\">\n    \n    <div>\n      <h3>Your name please:</h3>\n    </div>\n    \n    <div>\n      <input type=\"text\" #name (click)=\"checkValidation()\" (keyup)=\"checkValidation()\">\n    </div>\n    \n    <div>\n      <button [disabled]=\"!formValid\" (click)=\"click(); showName=true\">OK, now what?</button>\n    </div>\n    \n    \n  </div>\n  \n  <div id=\"hidden\" [style.visibility]=\"isVisible() ? 'hidden' : 'visible'\" >\n    <h1 [@greeting]=\"greetingState\" id=\"greeting\"> Hello {{myName}}!!!!!</h1>\n    <h3 id=\"your-ascii\">Did you now that your Ascii-Numerologic number is {{hollyNumber}}?</h3>\n    <h4 id=\"what-is-ascii\"><a href=\"https://nameecho.com/ascii\">what is ascii??</a> </h4>\n    <h4 id=\"ascii-info\"> <a href=\"https://en.wikipedia.org/wiki/ASCII\">More about Ascii-Numerology</a>  </h4>\n    <h3 id=\"link-to-site\"> <a routerLink=\"/home\"> Fuck off, let me get inside tommy's website!</a></h3>\n  </div>\n\n  <div id=\"codeMaster\" [style.visibility]=\"isVisible() ? 'hidden' : 'visible'\">\n    <h2>Thanks to:</h2>\n      My greatfull thanks to EG coder, who helped me upload this site.\n  </div>\n \n  \n</div>\n\n\n\n\n\n\n\n\n\n\n"
 
 /***/ }),
 
@@ -294,6 +301,8 @@ var WelcomeComponent = /** @class */ (function () {
         this.formValid = false;
         this.showName = false;
         this.hollyNumber = 0;
+        this.containerColor = 'linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);';
+        this.greetingState = 'out';
     }
     WelcomeComponent.prototype.ngOnInit = function () { };
     WelcomeComponent.prototype.checkValidation = function () {
@@ -338,7 +347,8 @@ var WelcomeComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-welcome',
             template: __webpack_require__(/*! ./welcome.component.html */ "./src/app/welcome/welcome.component.html"),
-            styles: [__webpack_require__(/*! ./welcome.component.css */ "./src/app/welcome/welcome.component.css")]
+            styles: [__webpack_require__(/*! ./welcome.component.css */ "./src/app/welcome/welcome.component.css")],
+            animations: []
         }),
         __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]])
     ], WelcomeComponent);
