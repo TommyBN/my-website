@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\nbody {\n    background: linear-gradient(0.25turn, #1e3e4d, #719e4e, #f69d3c);;\n}"
 
 /***/ }),
 

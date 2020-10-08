@@ -92,18 +92,20 @@ var AppComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./welcome/welcome.component */ "./src/app/welcome/welcome.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.component.ts");
+/* harmony import */ var _welcome_hello_hello_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./welcome/hello/hello.component */ "./src/app/welcome/hello/hello.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -120,15 +122,16 @@ var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_4__["WelcomeComponent"],
-                _main_main_component__WEBPACK_IMPORTED_MODULE_6__["MainComponent"]
+                _main_main_component__WEBPACK_IMPORTED_MODULE_6__["MainComponent"],
+                _welcome_hello_hello_component__WEBPACK_IMPORTED_MODULE_7__["HelloComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__["BrowserAnimationsModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(routes)
             ],
             providers: [],
@@ -250,6 +253,97 @@ var UserService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/welcome/hello/hello.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/welcome/hello/hello.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".container {\r\n    padding-left: 30%;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n#greeting {\r\n    color: white;\r\n    padding: 5%;\r\n    position: relative;\r\n    left: 0;\r\n    color: black;\r\n    width: 200px;\r\n    -webkit-transform: rotateZ(0deg);\r\n            transform: rotateZ(0deg);\r\n    -webkit-animation-name: greeting;\r\n            animation-name: greeting;\r\n    -webkit-animation-duration: 1.5s;\r\n            animation-duration: 1.5s;\r\n    -webkit-animation-timing-function: ease-in;\r\n            animation-timing-function: ease-in;\r\n    -webkit-animation-fill-mode: forwards;\r\n            animation-fill-mode: forwards;\r\n}\r\n\r\n@-webkit-keyframes greeting {\r\n    0% { left: -180%; -webkit-transform: rotateZ(0deg); transform: rotateZ(0deg)}\r\n    100% { left: 20%; -webkit-transform: rotateZ(360deg); transform: rotateZ(360deg)}\r\n}\r\n\r\n@keyframes greeting {\r\n    0% { left: -180%; -webkit-transform: rotateZ(0deg); transform: rotateZ(0deg)}\r\n    100% { left: 20%; -webkit-transform: rotateZ(360deg); transform: rotateZ(360deg)}\r\n}\r\n\r\n#your-ascii {\r\n    left: 0;\r\n}\r\n\r\n#holly-number {\r\n    position: relative;\r\n    display: inline-block;\r\n    color: rgb(82, 24, 53);\r\n    top: -800px;\r\n    left: 65%;\r\n    font-size: 30px;\r\n    -webkit-animation-name: hollyNumber;\r\n            animation-name: hollyNumber;\r\n    -webkit-animation-duration: 2s;\r\n            animation-duration: 2s;\r\n    -webkit-animation-delay: 6s;\r\n            animation-delay: 6s;\r\n    -webkit-animation-fill-mode: forwards;\r\n            animation-fill-mode: forwards;\r\n}\r\n\r\n@-webkit-keyframes hollyNumber {\r\n    0% { top: -800px; }\r\n    /* 50% { top: -400px; } */\r\n    100% { top: -53px; }\r\n}\r\n\r\n@keyframes hollyNumber {\r\n    0% { top: -800px; }\r\n    /* 50% { top: -400px; } */\r\n    100% { top: -53px; }\r\n}\r\n\r\n#what-is-ascii {\r\n    position: relative;\r\n    left: -100%;\r\n    -webkit-animation: whatIsAscii;\r\n            animation: whatIsAscii;\r\n    -webkit-animation-delay: 8s;\r\n            animation-delay: 8s;\r\n    -webkit-animation-duration: 1s;\r\n            animation-duration: 1s;\r\n    -webkit-animation-fill-mode: forwards;\r\n            animation-fill-mode: forwards;\r\n}\r\n\r\n@-webkit-keyframes whatIsAscii {\r\n    0% { left: -100% }\r\n    100% { left: 0% }\r\n}\r\n\r\n@keyframes whatIsAscii {\r\n    0% { left: -100% }\r\n    100% { left: 0% }\r\n}\r\n\r\n#ascii-numero {\r\n    position: relative;\r\n    right: 100%;\r\n    -webkit-animation: asciiNumero;\r\n            animation: asciiNumero;\r\n    -webkit-animation-delay: 9.5s;\r\n            animation-delay: 9.5s;\r\n    -webkit-animation-duration: 1s;\r\n            animation-duration: 1s;\r\n    -webkit-animation-timing-function: ease-out;\r\n            animation-timing-function: ease-out;\r\n    -webkit-animation-fill-mode: forwards;\r\n            animation-fill-mode: forwards;\r\n}\r\n\r\n@-webkit-keyframes asciiNumero {\r\n    0% { right: -100% }\r\n    100% { right: 0% }\r\n}\r\n\r\n@keyframes asciiNumero {\r\n    0% { right: -100% }\r\n    100% { right: 0% }\r\n}\r\n\r\n#link-to-site {\r\n\r\n}\r\n\r\n@media only screen and (max-width: 768px) {\r\n    #your-ascii { left: 10% }\r\n    #holly-number { left: 77% }\r\n    .container { padding-left: 5%;}\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/welcome/hello/hello.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/welcome/hello/hello.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\" >\n  <h1 id=\"greeting\"> Hello {{name}}!!!!!</h1>\n  <h2 id=\"your-ascii\" #yourAscii>\n    <!-- Did you now that your Ascii-Numerologic number is  -->\n    <!-- <span id=\"q-mark\">?</span>  -->\n  </h2>\n  <span id=\"holly-number\">{{hollyNumber}}?</span> \n  <h2 id=\"what-is-ascii\"><a href=\"https://en.wikipedia.org/wiki/ASCII\">what the hell is Ascii??</a> </h2>\n  <h2 id=\"ascii-numero\"> <a href=\"https://www.dcode.fr/word-value\">More about words values on dcode.fr</a>  </h2>\n  <!-- <h3 id=\"link-to-site\"> <a routerLink=\"/home\"> Fuck off, let me get inside tommy's website!</a></h3> -->\n</div>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/welcome/hello/hello.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/welcome/hello/hello.component.ts ***!
+  \**************************************************/
+/*! exports provided: HelloComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelloComponent", function() { return HelloComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/user.service */ "./src/app/user.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var HelloComponent = /** @class */ (function () {
+    function HelloComponent(userService) {
+        this.userService = userService;
+        this.yourAsciiText = 'Did you know that your Ascii-Numerologic number is ';
+        this.inter = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["interval"])(80);
+    }
+    HelloComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var len = this.yourAsciiText.length;
+        var obs = this.inter.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(len));
+        var i = 0;
+        this.name = this.userService.userName;
+        setTimeout(function () {
+            obs.subscribe(function () {
+                _this.yourAsciiElement.nativeElement.innerHTML += _this.yourAsciiText[i];
+                i++;
+            });
+        }, 3000);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Number)
+    ], HelloComponent.prototype, "hollyNumber", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('yourAscii'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], HelloComponent.prototype, "yourAsciiElement", void 0);
+    HelloComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-hello',
+            template: __webpack_require__(/*! ./hello.component.html */ "./src/app/welcome/hello/hello.component.html"),
+            styles: [__webpack_require__(/*! ./hello.component.css */ "./src/app/welcome/hello/hello.component.css")]
+        }),
+        __metadata("design:paramtypes", [src_app_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]])
+    ], HelloComponent);
+    return HelloComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/welcome/welcome.component.css":
 /*!***********************************************!*\
   !*** ./src/app/welcome/welcome.component.css ***!
@@ -257,7 +351,7 @@ var UserService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);\r\n}\r\n\r\nbutton {\r\n    border-radius: 5px;\r\n}\r\n\r\n.form-container {\r\n    width: 50%;\r\n    height: 30%;\r\n    padding: 5%;\r\n    margin-left: 40%;\r\n    \r\n    /* visibility: hidden; */\r\n}\r\n\r\n.form-container > div {\r\n    margin: 30px;\r\n}\r\n\r\n#hidden {\r\n    padding-left: 40%;\r\n    padding-top: 15%;\r\n}\r\n\r\n#codeMaster {\r\n    padding: 10%;\r\n}\r\n\r\n#greeting {\r\n\r\n}\r\n\r\n#your-ascii {\r\n\r\n}\r\n\r\n#what-is-ascii {\r\n\r\n}\r\n\r\n#ascii-info {\r\n\r\n}\r\n\r\n#link-to-site {\r\n\r\n}\r\n\r\n"
+module.exports = "\r\n\r\nbutton {\r\n    border-radius: 5px;\r\n}\r\n\r\n.form-container {\r\n    width: 50%;\r\n    height: 30%;\r\n    padding: 5%;\r\n    margin-left: 40%;\r\n    opacity: 1;\r\n    position: relative;\r\n    transition-property: opacity, padding;\r\n    transition-duration: 2s, 3s;\r\n}\r\n\r\napp-hello {\r\n    top: -9500px;\r\n}\r\n\r\n@media only screen and (max-width: 768px) {\r\n    .form-container { margin-left: 10% }\r\n    #codeMaster { margin: 50% }\r\n\r\n}\r\n\r\n.form-container > div {\r\n    margin: 30px;\r\n}\r\n\r\n#codeMaster {\r\n    margin: auto;\r\n    padding: 10%;\r\n    margin-top: 0;\r\n    transition-property: margin-top;\r\n    transition-duration: 2s;\r\n}\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -268,7 +362,7 @@ module.exports = ".container {\r\n    background: linear-gradient(0.25turn, #3f8
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- \n<div id=\"bar\">\n  <div id=\"logo\">\n    tommybn\n  </div>\n</div> -->\n\n\n<div class=\"container\" [style.backgroundColor]=\"isVisible() ? '' : containerColor\">\n  \n  <div class=\"form-container\" [style.display]=\"isVisible() ? 'block' : 'none'\">\n    \n    <div>\n      <h3>Your name please:</h3>\n    </div>\n    \n    <div>\n      <input type=\"text\" #name (click)=\"checkValidation()\" (keyup)=\"checkValidation()\">\n    </div>\n    \n    <div>\n      <button [disabled]=\"!formValid\" (click)=\"click(); showName=true\">OK, now what?</button>\n    </div>\n    \n    \n  </div>\n  \n  <div id=\"hidden\" [style.visibility]=\"isVisible() ? 'hidden' : 'visible'\" >\n    <h1 [@greeting]=\"greetingState\" id=\"greeting\"> Hello {{myName}}!!!!!</h1>\n    <h3 id=\"your-ascii\">Did you now that your Ascii-Numerologic number is {{hollyNumber}}?</h3>\n    <h4 id=\"what-is-ascii\"><a href=\"https://nameecho.com/ascii\">what is ascii??</a> </h4>\n    <h4 id=\"ascii-info\"> <a href=\"https://en.wikipedia.org/wiki/ASCII\">More about Ascii-Numerology</a>  </h4>\n    <h3 id=\"link-to-site\"> <a routerLink=\"/home\"> Fuck off, let me get inside tommy's website!</a></h3>\n  </div>\n\n  <div id=\"codeMaster\" [style.visibility]=\"isVisible() ? 'hidden' : 'visible'\">\n    <h2>Thanks to:</h2>\n      My greatfull thanks to EG coder, who helped me upload this site.\n  </div>\n \n  \n</div>\n\n\n\n\n\n\n\n\n\n\n"
+module.exports = "<!-- \n<div id=\"bar\">\n  <div id=\"logo\">\n    tommybn\n  </div>\n</div> -->\n\n\n<div class=\"container\" >\n\n  <div class=\"form-container\" [style.opacity]=\"showName ? '0' : '1'\" \n    [style.padding]=\"showName ? '0.1%' : '5%'\" >\n    <div>\n      <h3>Your name please:</h3>\n    </div>\n    <div>\n      <input type=\"text\" #name (click)=\"checkValidation()\" (keyup)=\"checkValidation()\">\n    </div>\n    <div>\n      <button [disabled]=\"!formValid\" (click)=\"click(); showName=true\">OK, now what?</button>\n    </div>\n  </div>\n\n  <app-hello [hollyNumber]=\"hollyNumber\" *ngIf=\"showName\"></app-hello>\n\n  <div id=\"codeMaster\" [style.marginTop]=\"showName ? '100%' : '0'\" >\n    <h2>Thanks to:</h2>\n      My greatfull thanks to EG coder, who helped me upload the site.\n  </div>\n \n  \n</div>\n\n\n\n\n\n\n\n\n\n\n"
 
 /***/ }),
 
@@ -295,14 +389,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+// import { trigger, state, style, animate, transition } from '@angular/animations';
 var WelcomeComponent = /** @class */ (function () {
     function WelcomeComponent(userService) {
         this.userService = userService;
         this.formValid = false;
         this.showName = false;
         this.hollyNumber = 0;
-        this.containerColor = 'linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);';
-        this.greetingState = 'out';
     }
     WelcomeComponent.prototype.ngOnInit = function () { };
     WelcomeComponent.prototype.checkValidation = function () {
@@ -313,12 +406,6 @@ var WelcomeComponent = /** @class */ (function () {
         this.userService.userName = this.myName;
         this.calculateLetters();
     };
-    WelcomeComponent.prototype.isVisible = function () {
-        if (!this.showName)
-            return true;
-        else
-            return false;
-    };
     WelcomeComponent.prototype.calculateLetters = function () {
         var tempNumber = 0;
         for (var _i = 0, _a = this.myName; _i < _a.length; _i++) {
@@ -326,7 +413,6 @@ var WelcomeComponent = /** @class */ (function () {
             tempNumber += letter.charCodeAt(0);
         }
         this.hollyNumber = this.digitalRoot(tempNumber);
-        console.log(this.hollyNumber);
     };
     WelcomeComponent.prototype.digitalRoot = function (number) {
         var strin = number.toString();
@@ -348,7 +434,6 @@ var WelcomeComponent = /** @class */ (function () {
             selector: 'app-welcome',
             template: __webpack_require__(/*! ./welcome.component.html */ "./src/app/welcome/welcome.component.html"),
             styles: [__webpack_require__(/*! ./welcome.component.css */ "./src/app/welcome/welcome.component.css")],
-            animations: []
         }),
         __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]])
     ], WelcomeComponent);
