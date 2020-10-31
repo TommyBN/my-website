@@ -14,7 +14,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
 
-app.use('/api/users', require('./users/routes'))
+app.use('/api/auth', require('./routes/auth-routes'))
+app.use('/api/todos', require('./routes/todos-routes'))
+// app.use('/api/jobs', require('./routes/jobs-routes'))
 
 app.listen(PORT, () => console.log(`Listening on tommybn.com:${PORT}`))
 

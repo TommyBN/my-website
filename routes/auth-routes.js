@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const User = require('./User');
 const bcrypt = require('bcryptjs');
+const { ObjectID } = require('mongodb');
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://127.0.0.1:27017/";
+var ObjectId = require('mongodb').ObjectId;
+
 
 //get all users
 router.get('/', (req, res) => {
@@ -23,9 +25,9 @@ router.get('/:id', (req, res) => {
     MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
         if (err) throw err;
         let dbo = db.db("tommybn");
-        dbo.collection("users").findOne({ _id: req.params.id }, function (err, result) {
+        dbo.collection("users").findOne({ _id: ObjectId(req.params.id) }, function (err, result) {
             if (err) throw err;
-            res.status(200).json(result);
+            res.status(200).json(result.name);
             db.close();
         });
     });
@@ -35,7 +37,7 @@ router.get('/:id', (req, res) => {
 router.post('/signup', async (req, res) => {
 
     var response = {
-        signedUp: false,
+        valid: false,
         msg: '',
     }
 
@@ -63,7 +65,7 @@ router.post('/signup', async (req, res) => {
                         dbo.collection("users").insertOne(user, function (err, result) {
                             if (err) throw err;
                             let username = result.ops[0].name;
-                            response.signedUp = true;
+                            response.valid = true;
                             response.msg = `משתמש חדש בשם ${username} נרשם בהצלחה למערכת`
                             res.status(200).json(response);
                         });
@@ -73,6 +75,7 @@ router.post('/signup', async (req, res) => {
     })
 })
 
+//log in
 router.post('/login', (req, res) => {
 
     var response = {
