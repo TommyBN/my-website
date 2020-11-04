@@ -16,23 +16,9 @@ app.use(cookieParser())
 
 app.use('/api/auth', require('./routes/auth-routes'))
 app.use('/api/todos', require('./routes/todos-routes'))
-// app.use('/api/jobs', require('./routes/jobs-routes'))
+app.use('/api/jobs', require('./routes/jobs-routes'))
 
 app.listen(PORT, () => console.log(`Listening on tommybn.com:${PORT}`))
-
-app.get('/api/test', (req, res) => {
-
-  // MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
-  //   if (err) throw err;
-  //   var dbo = db.db("mydb");
-  //   dbo.listCollections().toArray(function (err, collectionInfos) {
-  //     res.send(collectionInfos)
-  //     db.close();
-  //   });
-  // })
-
-  res.send("info")
-})
 
 
 
