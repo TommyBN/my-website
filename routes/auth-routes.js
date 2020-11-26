@@ -1,24 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const { ObjectID } = require('mongodb');
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://127.0.0.1:27017/";
 var ObjectId = require('mongodb').ObjectId;
 
-
-//get all users
-router.get('/', (req, res) => {
-    MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
-        if (err) throw err;
-        let dbo = db.db("tommybn");
-        dbo.collection("users").find({}).toArray(function (err, result) {
-            if (err) throw err;
-            res.status(200).json(result);
-            db.close();
-        });
-    });
-})
 
 //get user
 router.get('/:id', (req, res) => {
@@ -31,7 +18,9 @@ router.get('/:id', (req, res) => {
             db.close();
         });
     });
-})
+})                      
+
+    
 
 //sign up
 router.post('/signup', async (req, res) => {
@@ -81,7 +70,8 @@ router.post('/login', (req, res) => {
     var response = {
         valid: false,
         msg: '',
-        id: ''
+        id: '',
+        token: ''
     }
 
     MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
@@ -96,11 +86,12 @@ router.post('/login', (req, res) => {
                 bcrypt.compare(req.body.password, user.password, (err, match) => {
                     if(err) throw err;
                     if(match) {
-                        //passwords match, return success message
-                        response.valid = true;
-                        response.msg = 'כניסה מוצלחת';
-                        response.id = user._id;
-                        res.json(response);
+                        //passwords match, generate token and return it + success message
+                            response.token = jwt.sign({id: user._id}, 'sudosudoku');                
+                            response.valid = true;
+                            response.msg = 'כניסה מוצלחת';
+                            response.id = user._id;
+                            res.json(response);
                     }
                     else {
                         //password incorrect, return failure message
@@ -118,5 +109,35 @@ router.post('/login', (req, res) => {
     });
 })
 
+//check if user is allready logged in
+router.post('/check', (req, res) => {
+    var response = {
+        valid: false,
+        msg: '',
+        id: '',
+    }
+    const bearerHeader = req.headers['authorization'];
+    if(typeof bearerHeader != 'undefined') {
+        const bearer = bearerHeader.split(' ');
+        const bearerToken = bearer[1];
+        jwt.verify(bearerToken, 'sudosudoku', (err, data) => {
+            console.log('data: ',data)
+            if (err) {
+                response.msg = 'Not authorized - t'
+                res.json(response);
+            } 
+            else {
+                response.id = data.id;
+                response.valid = true;
+                res.json(response);
+            } 
+        });
+        
+    }
+    else {
+        response.msg = 'Not Authorized - u';
+        res.json(response);
+    } 
+})
 
 module.exports = router;
