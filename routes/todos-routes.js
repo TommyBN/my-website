@@ -18,7 +18,6 @@ router.get('/:id', (req, res) => {
 
 //add Todo
 router.post('/:id', (req, res) => {
-    console.log('todo:', req.body)
     MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
         if (err) throw err;
         let dbo = db.db("tommybn");

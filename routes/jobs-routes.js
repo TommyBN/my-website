@@ -56,8 +56,6 @@ router.post('/delete/:id', (req, res) => {
     MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
         if (err) throw err;
         var dbo = db.db("tommybn");
-        var id = req.params.id;
-        console.log(req.body)
         dbo.collection("users").updateOne(
             { "_id": ObjectId(req.params.id) },
             { $pull: { jobs: {name: req.body.name} } },

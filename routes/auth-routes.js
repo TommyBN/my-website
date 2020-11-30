@@ -87,7 +87,7 @@ router.post('/login', (req, res) => {
                     if(err) throw err;
                     if(match) {
                         //passwords match, generate token and return it + success message
-                            response.token = jwt.sign({id: user._id}, 'sudosudoku');                
+                            response.token = jwt.sign({id: user._id}, 'sudosudoku', {expiresIn: '2h'});                
                             response.valid = true;
                             response.msg = 'כניסה מוצלחת';
                             response.id = user._id;
@@ -121,7 +121,6 @@ router.post('/check', (req, res) => {
         const bearer = bearerHeader.split(' ');
         const bearerToken = bearer[1];
         jwt.verify(bearerToken, 'sudosudoku', (err, data) => {
-            console.log('data: ',data)
             if (err) {
                 response.msg = 'Not authorized - t'
                 res.json(response);
