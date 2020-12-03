@@ -71,7 +71,8 @@ router.post('/login', (req, res) => {
         valid: false,
         msg: '',
         id: '',
-        token: ''
+        token: '',
+        userName: ''
     }
 
     MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
@@ -87,10 +88,11 @@ router.post('/login', (req, res) => {
                     if(err) throw err;
                     if(match) {
                         //passwords match, generate token and return it + success message
-                            response.token = jwt.sign({id: user._id}, 'sudosudoku', {expiresIn: '2h'});                
+                            response.token = jwt.sign({id: user._id, name: user.name}, 'sudosudoku', {expiresIn: '2h'});                
                             response.valid = true;
                             response.msg = 'כניסה מוצלחת';
                             response.id = user._id;
+                            response.userName = user.name;
                             res.json(response);
                     }
                     else {
